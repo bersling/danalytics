@@ -1,9 +1,14 @@
 import {Controller, Get} from '@nestjs/common';
+import { getAllLogs } from '../danalytics/danalytics';
 
 @Controller('')
 export class WelcomeHtmlController {
+
   @Get()
   public welcome() {
+
+    getAllLogs();
+
     return `
 <html style="margin: 0; padding: 0;">
 <head>
