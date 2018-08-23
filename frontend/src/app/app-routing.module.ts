@@ -8,12 +8,14 @@ import {AuthGuardService} from './user/auth-guard.service';
 import {LoginComponent} from './user/login/login.component';
 import {SignUpComponent} from './user/sign-up/sign-up.component';
 import {ProfileComponent} from './user/profile/profile.component';
+import { ErrorsDashboardComponent } from './dashboard/errors-dashboard/errors-dashboard.component';
 
 const appRoutes: Routes = [
   {path: '', component: DashboardComponent},
   {path: 'login', component: LoginComponent, canActivate: [AuthGuardService]},
   {path: 'signup', component: SignUpComponent, canActivate: [AuthGuardService]},
   {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService]},
+  {path: 'errors-dashboard', component: ErrorsDashboardComponent},
   {path: '**', component: PageNotFoundComponent}
 ];
 

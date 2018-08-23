@@ -14,7 +14,7 @@ export class AppComponent {
       router.events.subscribe(newRoute => {
         if (newRoute instanceof NavigationEnd) {
           // Decide which pages get a border and which not
-          const borderlessPages = ['/'];
+          const borderlessPages = ['/', '/errors-dashboard'];
           this.isBorderlessPage = borderlessPages.indexOf(newRoute.urlAfterRedirects) > -1;
         }
       });
