@@ -1,0 +1,19 @@
+<div *ngFor="let err of errors?.errors" class="error">
+  <div class="error-message">
+      <b>{{err.data?.eventData?.name}}</b>: {{err.data?.eventData?.message}}
+  </div>
+  <pre class="stacktrace">
+    {{err.data?.eventData?.stack}}
+  </pre>
+  <div>
+    <b>Time:</b> {{getTime(err.timestamp) | date:'mediumDate' }} |
+    <b>Device:</b> {{getUserAgent(err.meta?.headers?.User-Agent)}} |
+    <b>URL:</b> {{err.data?.pageURL}}
+  </div>
+  <div>
+    <button (click)="toggleDetails(err)">{{err.showDetails ? 'Hide' : 'Show'}} Details</button>
+  </div>
+  <pre *ngIf="err.showDetails">
+    {{err | json}}
+  </pre>
+</div>

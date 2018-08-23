@@ -4,7 +4,7 @@
   "description": "The full backend",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=development nodemon",
+    "start": "ts-node ./src/server.ts",
     "prestart:prod": "tsc",
     "build:prod": "tsc",
     "lint": "tslint 'src/**/*.ts'",

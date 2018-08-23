@@ -28,19 +28,13 @@ import {environment} from '../environments/environment';
 import {ResourceModule} from './resource/resource.module';
 import {AuthHeaderInterceptor} from './user/auth.http.interceptor';
 import {AnimalListModule} from './animal-list/animal-list.module';
+import { MetricsService } from './metrics.service';
+import { DashboardModule } from './dashboard/dashboard.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    TopnavComponent,
-    PageNotFoundComponent,
-    LandingComponent,
-    JumbotronComponent,
-    SpacerComponent,
-    DashboardComponent
-  ],
   imports: [
     BrowserModule,
+    DashboardModule,
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
@@ -61,6 +55,15 @@ import {AnimalListModule} from './animal-list/animal-list.module';
       primaryColor: '#3F51B5',
       secondaryColor: '#FF4081'
     })
+  ],
+  declarations: [
+    AppComponent,
+    TopnavComponent,
+    PageNotFoundComponent,
+    LandingComponent,
+    JumbotronComponent,
+    SpacerComponent,
+    DashboardComponent
   ],
   providers: [
     {

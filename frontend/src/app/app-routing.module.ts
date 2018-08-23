@@ -10,11 +10,10 @@ import {SignUpComponent} from './user/sign-up/sign-up.component';
 import {ProfileComponent} from './user/profile/profile.component';
 
 const appRoutes: Routes = [
-  {path: '', component: LandingComponent, canActivate: [AuthGuardService]},
+  {path: '', component: DashboardComponent},
   {path: 'login', component: LoginComponent, canActivate: [AuthGuardService]},
   {path: 'signup', component: SignUpComponent, canActivate: [AuthGuardService]},
   {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService]},
-  {path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService]} /* work in progress */,
   {path: '**', component: PageNotFoundComponent}
 ];
 
