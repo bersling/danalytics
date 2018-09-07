@@ -12,7 +12,16 @@ export function getAllErrors() {
                 const col = db.collection('danalogs');
                 const isError = {'data.event': 'JS_ERROR'};
                 const isProd = {'data.pageHostname': 'lernnavi.taskbase.com'};
-                const stream = col.find({$and: [isError, isProd]});
+                const now = new Date();
+                const then = new Date();
+                then.setHours(then.getHours() - 12);
+                const isBetween = {
+                  timestamp: {
+                    $gte: then.getTime(),
+                    $lt: now.getTime()
+                  }
+                }
+                const stream = col.find({$and: [isError, isProd, isBetween]});
 
                 const errors = [];
 
