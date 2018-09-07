@@ -6,5 +6,5 @@ import {Environment} from './environment.model';
 
 export const environment: Environment = {
   production: false,
-  api: 'https://europe-west1-taskbaseapp.cloudfunctions.net/danalytics'
+  api: ' http://localhost:8010/helloworld/europe-west1/danalyticsFrontendErrors'
 };

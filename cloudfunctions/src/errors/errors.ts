@@ -14,7 +14,7 @@ function nowMinusNHours(numberOfHours: number) {
   return d;
 }
 
-export function getAllErrors(filters: ErrorFilters) {
+export function getFrontendErrors(filters: ErrorFilters) {
   return new Promise((resolve, reject) => {
     MongoClient.connect(secret.url, function (err, client) {
       if (err) {
