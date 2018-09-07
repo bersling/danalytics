@@ -14,3 +14,11 @@
 .stacktrace {
     font-size: 10px;
 }
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    .filter {
+        padding: 5px;
+    }
+}

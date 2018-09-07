@@ -1,9 +1,9 @@
-import {getAllErrors} from './danalytics/danalytics';
+import {ErrorFilters, getAllErrors} from './danalytics/danalytics';
 
-const getFrontendErrors = () => {
+const getFrontendErrors = (filters: ErrorFilters) => {
   return new Promise(async (resolve, reject) => {
     try {
-      const frontendErrors = await getAllErrors();
+      const frontendErrors = await getAllErrors(filters);
       resolve(frontendErrors);
     } catch (err) {
       console.error(err);
@@ -18,7 +18,7 @@ exports.danalytics = async (req, res) => {
   res.set('Access-Control-Allow-Methods', 'GET, POST');
   const postData = req.body;
   try {
-    const resp = await getFrontendErrors();
+    const resp = await getFrontendErrors(postData || {});
     res.status(200).send({
       errors: resp
     });

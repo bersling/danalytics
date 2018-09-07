@@ -11,8 +11,8 @@ export class MetricsService {
         private http: HttpClient
     ) {}
 
-    getErrorMetrics() {
-        return this.http.get(`${ENDPOINT_ROOT}`);
+    getErrorMetrics(filters) {
+        return this.http.post(`${ENDPOINT_ROOT}`, filters);
     }
 
 }

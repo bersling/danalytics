@@ -1,7 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { MetricsService } from '../../metrics.service';
-
 declare var UAParser;
+
+function nowMinusNHours(numberOfHours: number) {
+  const d = new Date();
+  d.setHours(d.getHours() - numberOfHours);
+  return d;
+}
+
 
 @Component({
   selector: 'app-errors-dashboard',
@@ -11,17 +17,36 @@ declare var UAParser;
 export class ErrorsDashboardComponent implements OnInit {
 
   errors;
+  task = '';
+  nhours = 24;
+  loading = false;
 
   constructor(
     private metricsService: MetricsService
   ) { }
 
   ngOnInit() {
-    this.metricsService.getErrorMetrics().subscribe(resp => {
+    this.getErrors();
+  }
+
+  private getErrors() {
+    this.loading = true;
+    const query = {
+      task: this.task,
+      start: nowMinusNHours(this.nhours),
+      end: new Date()
+    };
+    this.metricsService.getErrorMetrics(query).subscribe(resp => {
       this.errors = resp;
+      this.loading = false;
     }, errorResp => {
       console.error(errorResp);
+      this.loading = false;
     });
+  }
+
+  searchErrors() {
+    this.getErrors();
   }
 
   getTime(ts: number) {
