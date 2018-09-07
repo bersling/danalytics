@@ -6,5 +6,5 @@ import {Environment} from './environment.model';
 
 export const environment: Environment = {
   production: false,
-  api: 'http://localhost:4242/api'
+  api: 'https://europe-west1-taskbaseapp.cloudfunctions.net/danalytics'
 };

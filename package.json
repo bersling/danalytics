@@ -4,8 +4,7 @@
   "description": "Boilerplate for a TS-MEAN App",
   "devDependencies": {
     "lerna": "^2.11.0",
-    "tslint": "^5.10.0",
-    "typescript": "^2.8.3"
+    "tslint": "^5.10.0"
   },
   "scripts": {
     "start": "echo \"Nothing to do\" && exit 1",
@@ -32,5 +31,8 @@
   "bugs": {
     "url": "https://github.com/tsmean/tsmean/issues"
   },
-  "homepage": "https://github.com/tsmean/tsmean#readme"
+  "homepage": "https://github.com/tsmean/tsmean#readme",
+  "dependencies": {
+    "typescript": "^3.0.3"
+  }
 }

@@ -1,5 +1,16 @@
 <h2>Errors</h2>
+
+
+<span *ngIf="errors">
+  Loaded <b>{{errors.errors.length}}</b>
+</span>
+<span *ngIf="!errors">
+  Loading
+</span>
+errors...
+
 <div *ngFor="let err of errors?.errors" class="error">
+  {{err | json}}
   <div class="error-message">
       <b>{{err.data?.eventData?.name}}</b>: {{err.data?.eventData?.message}}
   </div>

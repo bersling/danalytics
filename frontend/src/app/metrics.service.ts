@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../environments/environment';
 
-const ENDPOINT_ROOT = `${environment.api}/metrics`;
+const ENDPOINT_ROOT = `${environment.api}`;
 
 @Injectable()
 export class MetricsService {
@@ -12,7 +12,7 @@ export class MetricsService {
     ) {}
 
     getErrorMetrics() {
-        return this.http.get(`${ENDPOINT_ROOT}/errors`);
+        return this.http.get(`${ENDPOINT_ROOT}`);
     }
 
 }

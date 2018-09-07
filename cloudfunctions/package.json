@@ -1,0 +1,16 @@
+{
+  "name": "@taskbase/mailserver",
+  "version": "0.0.1",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"no test\"",
+    "deploy:local": "npm run build && functions deploy danalytics --region europe-west1 --trigger-http",
+    "deploy:prod": "npm run build && gcloud beta functions deploy danalytics --region europe-west1 --trigger-http"
+  },
+  "main": "dist/index.js",
+  "dependencies": {
+    "@types/mongodb": "^3.1.4",
+    "mongodb": "^3.1.4",
+    "typescript": "^3.0.3"
+  }
+}
